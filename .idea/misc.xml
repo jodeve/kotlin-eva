@@ -4,13 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.10182370820668693" />
+        <entry key="app/src/main/res/drawable/text_field_border.xml" value="0.129" />
+        <entry key="app/src/main/res/drawable/text_field_errorr.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/text_field_focused.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/textfield_edittext.xml" value="0.1105" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.1" />
         <entry key="app/src/main/res/font/poppins_regular.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.13858695652173914" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_slide.xml" value="0.33" />
         <entry key="app/src/main/res/layout/slide_layout.xml" value="0.11911231884057971" />
+        <entry key="app/src/main/res/layout/textfield.xml" value="0.25" />
       </map>
     </option>
   </component>

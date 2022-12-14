@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/text_field_margin"
+    >
+
+    <com.example.kotlin_eva.components.LabelText
+        android:id="@+id/textfield_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        android:visibility="gone"
+        />
+
+    <EditText
+        android:id="@+id/textfield_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:background="@drawable/textfield_edittext"
+        />
+
+    <com.example.kotlin_eva.components.ErrorText
+        android:id="@+id/textfield_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Error"
+        android:visibility="gone"
+        />
+
+</LinearLayout>
