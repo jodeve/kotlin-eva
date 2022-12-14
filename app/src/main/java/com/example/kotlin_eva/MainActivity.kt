@@ -1,5 +1,6 @@
 package com.example.kotlin_eva
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     var currentPos = 0
     var slider: ViewPager2? = null
+    var skipButton: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.WHITE
         slider = findViewById(R.id.slider)
         val nextButton = findViewById<Button>(R.id.next)
+        skipButton = findViewById(R.id.skip)
 
         val arrayList = ArrayList<Slide>()
 
@@ -36,22 +39,16 @@ class MainActivity : AppCompatActivity() {
             slider!!.currentItem = currentPos + 1
         }
 
-        slider!!.registerOnPageChangeCallback(object : OnPageChangeCallback() {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                currentPos = position
-            }
+        slider!!.registerOnPageChangeCallback(SlidesOnPageChangeCallback.getCallback(this))
 
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                Log.e("Selected_Page", position.toString())
+        skipButton!!.setOnClickListener { navigateToSignUp() }
+    }
 
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-            }
-        })
+    fun navigateToSignUp(){
+        val intent = Intent(this, SignUpActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
     }
 
 }
