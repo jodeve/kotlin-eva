@@ -18,18 +18,16 @@
         android:layout_marginBottom="20sp"
         />
 
-    <TextView
+    <com.example.kotlin_eva.components.Header
         android:id="@+id/sliderText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/hello_blank_fragment"
-        android:textSize="20sp"
-        android:textFontWeight="700"
         android:layout_marginBottom="10sp"
         />
 
-    <TextView
+    <com.example.kotlin_eva.components.Text
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
