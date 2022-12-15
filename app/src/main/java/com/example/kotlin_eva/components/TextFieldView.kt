@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import com.example.kotlin_eva.R
 
-class TextfieldView @JvmOverloads constructor(context: Context, attrs: AttributeSet?, defStyle: Int = 0, defStyleRes: Int = 0): LinearLayout(context, attrs, defStyle, defStyleRes) {
+class TextFieldView @JvmOverloads constructor(context: Context, attrs: AttributeSet?, defStyle: Int = 0, defStyleRes: Int = 0): LinearLayout(context, attrs, defStyle, defStyleRes) {
 
     var labelText: TextView
     var errorText: TextView
@@ -32,7 +32,7 @@ class TextfieldView @JvmOverloads constructor(context: Context, attrs: Attribute
 
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.textfield_view, this, true)
+        LayoutInflater.from(context).inflate(R.layout.text_field_view, this, true)
 
         labelText = findViewById(R.id.textfield_label)
         errorText = findViewById(R.id.textfield_error)
@@ -40,9 +40,9 @@ class TextfieldView @JvmOverloads constructor(context: Context, attrs: Attribute
 
 
         attrs?.let {
-            val typedArray = context.obtainStyledAttributes(it, R.styleable.Textfield)
+            val typedArray = context.obtainStyledAttributes(it, R.styleable.TextField)
 
-            val _label = typedArray.getString(R.styleable.Textfield_label)
+            val _label = typedArray.getString(R.styleable.TextField_label)
             if(_label != null)
                 label = _label
             typedArray.recycle()

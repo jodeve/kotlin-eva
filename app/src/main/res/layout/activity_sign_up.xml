@@ -27,28 +27,28 @@
            android:text="Create an account to continue"
            />
 
-       <com.example.kotlin_eva.components.TextfieldView
+       <com.example.kotlin_eva.components.TextFieldView
            android:id="@+id/name"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginTop="24dp"
            custom:label="Name"/>
 
-       <com.example.kotlin_eva.components.TextfieldView
+       <com.example.kotlin_eva.components.TextFieldView
            android:id="@+id/email"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginTop="24dp"
            custom:label="Email"/>
 
-       <com.example.kotlin_eva.components.TextfieldView
+       <com.example.kotlin_eva.components.TextFieldView
            android:id="@+id/password"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginTop="24dp"
            custom:label="Password"/>
 
-       <com.example.kotlin_eva.components.TextfieldView
+       <com.example.kotlin_eva.components.TextFieldView
            android:id="@+id/c_password"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"

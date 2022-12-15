@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="Textfield">
+    <declare-styleable name="TextField">
         <attr name="label" format="string"/>
     </declare-styleable>
     <attr name="state_error" format="boolean" />
