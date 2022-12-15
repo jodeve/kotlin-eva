@@ -20,9 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val window = window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = Color.WHITE
+        Statusbar.makeWhite(this)
         slider = findViewById(R.id.slider)
         val nextButton = findViewById<Button>(R.id.next)
         skipButton = findViewById(R.id.skip)

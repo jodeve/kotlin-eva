@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable/textfield_edittext.xml" value="0.1105" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.1" />
         <entry key="app/src/main/res/font/poppins_regular.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/account_tease_view.xml" value="0.15833333333333333" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.17" />

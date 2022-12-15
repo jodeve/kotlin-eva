@@ -2,4 +2,5 @@
     <string name="app_name">Kotlin-Eva</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</string>
+    <string name="textfield_label">Label</string>
 </resources>

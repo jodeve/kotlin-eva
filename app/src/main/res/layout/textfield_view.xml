@@ -3,14 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/text_field_margin"
     >
 
     <com.example.kotlin_eva.components.LabelText
         android:id="@+id/textfield_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Label"
+        android:text="@string/textfield_label"
         android:visibility="gone"
         />
 

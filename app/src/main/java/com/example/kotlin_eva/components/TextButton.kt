@@ -5,12 +5,16 @@ import android.util.AttributeSet
 import androidx.core.content.res.ResourcesCompat
 import com.example.kotlin_eva.R
 
-class LabelText(context: Context, attributeSet: AttributeSet):
-    Text(context, attributeSet) {
+class TextButton(context: Context, attributeSet: AttributeSet): Text(context, attributeSet) {
 
     init {
+        applyFont()
+    }
+
+    override fun applyFont() {
         super.applyFont()
         val color = ResourcesCompat.getColor(resources, R.color.black, null)
         setTextColor(color)
     }
+
 }

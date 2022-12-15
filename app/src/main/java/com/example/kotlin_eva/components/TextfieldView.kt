@@ -2,7 +2,6 @@ package com.example.kotlin_eva.components
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -10,8 +9,7 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import com.example.kotlin_eva.R
 
-class Textfield @JvmOverloads constructor(context: Context, attrs: AttributeSet?, defStyle: Int = 0, defStyleRes: Int = 0):
-    LinearLayout(context, attrs, defStyle, defStyleRes) {
+class TextfieldView @JvmOverloads constructor(context: Context, attrs: AttributeSet?, defStyle: Int = 0, defStyleRes: Int = 0): LinearLayout(context, attrs, defStyle, defStyleRes) {
 
     var labelText: TextView
     var errorText: TextView
@@ -34,7 +32,7 @@ class Textfield @JvmOverloads constructor(context: Context, attrs: AttributeSet?
 
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.textfield, this, true)
+        LayoutInflater.from(context).inflate(R.layout.textfield_view, this, true)
 
         labelText = findViewById(R.id.textfield_label)
         errorText = findViewById(R.id.textfield_error)
@@ -51,5 +49,4 @@ class Textfield @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         }
     }
 
-
-    }
+}
