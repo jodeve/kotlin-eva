@@ -15,6 +15,8 @@ class TextFieldView @JvmOverloads constructor(context: Context, attrs: Attribute
     var errorText: TextView
     var editText: EditText
 
+    var isRequired = true
+
     var label: String = ""
         set(value) {
             field = value
@@ -45,8 +47,21 @@ class TextFieldView @JvmOverloads constructor(context: Context, attrs: Attribute
             val _label = typedArray.getString(R.styleable.TextField_label)
             if(_label != null)
                 label = _label
+
+            val _isRequired = typedArray.getBoolean(R.styleable.TextField_required, true)
+            if(!_isRequired) isRequired = false
+
             typedArray.recycle()
         }
+    }
+
+    fun isValid(): Boolean{
+        if(this.isRequired && editText.text.toString().isEmpty()){
+            error = "${label} is required"
+            return false
+        }
+
+        return false
     }
 
 }

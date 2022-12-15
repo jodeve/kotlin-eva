@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="TextField">
         <attr name="label" format="string"/>
+        <attr name="required" format="boolean"/>
     </declare-styleable>
     <attr name="state_error" format="boolean" />
 </resources>
