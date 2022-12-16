@@ -15,8 +15,10 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.17" />
+        <entry key="app/src/main/res/layout/email_field_view.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/fragment_slide.xml" value="0.33" />
         <entry key="app/src/main/res/layout/slide_layout.xml" value="0.11911231884057971" />
+        <entry key="app/src/main/res/layout/text_field_view.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/layout/textfield.xml" value="0.25" />
         <entry key="app/src/main/res/layout/textfield_view.xml" value="0.159375" />
       </map>
