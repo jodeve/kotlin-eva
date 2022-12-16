@@ -20,6 +20,8 @@ open class TextFieldView @JvmOverloads constructor(context: Context, attrs: Attr
     var isRequired = true
     var input = ""
 
+    var name = ""
+
     var label: String = ""
         set(value) {
             field = value
@@ -64,6 +66,11 @@ open class TextFieldView @JvmOverloads constructor(context: Context, attrs: Attr
                 input = _input
                 if(input == "email") editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS
                 if(input == "password") editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+
+            val _name = typedArray.getString(R.styleable.TextFieldView_name)
+            if(!_name.isNullOrEmpty()) {
+                name = _name
             }
 
 

@@ -4,6 +4,7 @@
         <attr name="label" format="string"/>
         <attr name="required" format="boolean"/>
         <attr name="input" format="string"/>
+        <attr name="name" format="string"/>
     </declare-styleable>
     <attr name="state_error" format="boolean" />
 </resources>

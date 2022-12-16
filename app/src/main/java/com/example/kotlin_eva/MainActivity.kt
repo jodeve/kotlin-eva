@@ -9,6 +9,8 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.example.kotlin_eva.services.Navigator
+import com.example.kotlin_eva.services.Storage
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,9 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun navigateToSignUp(){
-        val intent = Intent(this, SignUpActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
+        Navigator.navigate(this, SignUpActivity::class.java)
         finish()
     }
 
