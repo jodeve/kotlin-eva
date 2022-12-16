@@ -47,6 +47,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginTop="24dp"
+           custom:input="password"
            custom:label="Password"/>
 
        <com.example.kotlin_eva.components.TextFieldView
@@ -54,6 +55,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginTop="24dp"
+           custom:input="password"
            custom:label="Confirm Password"/>
 
        <com.example.kotlin_eva.components.PrimaryButton

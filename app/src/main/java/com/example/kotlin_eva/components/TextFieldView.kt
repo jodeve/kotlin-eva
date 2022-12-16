@@ -63,6 +63,7 @@ open class TextFieldView @JvmOverloads constructor(context: Context, attrs: Attr
             if(!_input.isNullOrEmpty()) {
                 input = _input
                 if(input == "email") editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS
+                if(input == "password") editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             }
 
 
@@ -79,6 +80,11 @@ open class TextFieldView @JvmOverloads constructor(context: Context, attrs: Attr
 
         if(input == "email" && !Patterns.EMAIL_ADDRESS.matcher(text).matches()){
             error = "${label} must be a valid email"
+            return false
+        }
+
+        if(input == "password" && text.length < 8){
+            error = "${label} must have more than 8 characters"
             return false
         }
 
