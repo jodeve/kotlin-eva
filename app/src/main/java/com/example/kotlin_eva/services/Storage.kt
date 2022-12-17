@@ -2,8 +2,6 @@ package com.example.kotlin_eva.services
 
 import android.app.Activity
 import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
-import com.example.kotlin_eva.MainActivity
 
 object Storage {
 

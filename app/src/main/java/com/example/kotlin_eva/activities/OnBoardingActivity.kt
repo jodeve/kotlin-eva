@@ -1,19 +1,17 @@
-package com.example.kotlin_eva
+package com.example.kotlin_eva.activities
 
-import android.content.Intent
-import android.graphics.Color
-import android.os.Bundle
-import android.util.Log
-import android.view.WindowManager
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
 import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.example.kotlin_eva.*
+import com.example.kotlin_eva.models.Slide
 import com.example.kotlin_eva.services.Navigator
+import com.example.kotlin_eva.services.SlidesOnPageChangeCallback
+import com.example.kotlin_eva.services.Statusbar
 import com.example.kotlin_eva.services.Storage
 
-
-class MainActivity : AppCompatActivity() {
+class OnBoardingActivity : AppCompatActivity() {
 
     var currentPos = 0
     var slider: ViewPager2? = null
@@ -21,8 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_on_boarding)
         Statusbar.makeWhite(this)
+        if(!Storage.getData(this, Companion.ONBOARD_KEY).isNullOrEmpty()) Navigator.navigate(this, MainActivity::class.java)
         slider = findViewById(R.id.slider)
         val nextButton = findViewById<Button>(R.id.next)
         skipButton = findViewById(R.id.skip)
@@ -45,8 +44,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun navigateToSignUp(){
+        Storage.storeData(this, Companion.ONBOARD_KEY, "store")
         Navigator.navigate(this, SignUpActivity::class.java)
         finish()
     }
 
+    companion object {
+        const val ONBOARD_KEY = "onboard"
+    }
 }

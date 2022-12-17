@@ -1,21 +1,13 @@
-package com.example.kotlin_eva
+package com.example.kotlin_eva.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.kotlin_eva.R
+import com.example.kotlin_eva.services.Statusbar
 import com.example.kotlin_eva.components.TextFieldView
-import com.example.kotlin_eva.models.AppContext
-import com.example.kotlin_eva.models.User
 import com.example.kotlin_eva.services.AuthApi
-import com.example.kotlin_eva.services.Navigator
-import com.example.kotlin_eva.services.Storage
-import com.squareup.okhttp.MediaType
-import com.squareup.okhttp.OkHttpClient
-import com.squareup.okhttp.Request
-import com.squareup.okhttp.RequestBody
-import org.json.JSONObject
 
 
 class SignUpActivity : AppCompatActivity() {
