@@ -9,8 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlin_eva.activities.ProductActivity
 import com.example.kotlin_eva.components.Header
 import com.example.kotlin_eva.models.Product
+import com.example.kotlin_eva.services.Navigator
 import com.squareup.picasso.Picasso
 
 
@@ -25,20 +27,23 @@ class ProductsAdapter(var context: Context, var products: ArrayList<Product>): R
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view: View = layoutInflater.inflate(R.layout.product_layout, parent, false)
-        view.setOnClickListener {
-            Toast.makeText(context, "Hi", Toast.LENGTH_LONG).show()
-        }
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.header.text = products[position].name
+        val product = products[position]
+        holder.header.text = product.name
         Picasso.get()
-            .load(products[position].image)
+            .load(product.image)
             .transform(RoundCornersTransform(50f))
             .into(holder.image)
-        val cost = products[position].cost
+        val cost = product.cost
         holder.cost.text = "GHC ${cost.toString()}"
+        holder.itemView.setOnClickListener {
+            val hashMap = HashMap<String, String>()
+            hashMap["productId"] = product.id.toString()
+            Navigator.navigate(context, ProductActivity::class.java, hashMap)
+        }
     }
 
     override fun getItemCount(): Int {

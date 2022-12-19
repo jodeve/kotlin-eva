@@ -42,5 +42,8 @@ class MainActivity : AppCompatActivity(), Products {
         productsRV.layoutManager = GridLayoutManager(this, 2)
     }
 
+    override fun setProduct(product: Product) {
+    }
+
 
 }
