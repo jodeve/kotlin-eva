@@ -14,7 +14,7 @@ open class User {
             User().apply {
                 name = jsonObject.getString("name")
                 email = jsonObject.getString("email")
-                avatar = jsonObject.getString("avatar")
+                //avatar = jsonObject.getString("avatar")
             }
     }
 }

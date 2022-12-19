@@ -24,11 +24,13 @@ object AuthApi {
             val api = Api(activity,"/register", hashMap)
             val res = api.execute()
             val headers = res.headers()
-            val bearer = headers.get("Authorization")
-            val token = bearer.split("Bearer ")[1]
-            Storage.storeData(activity, "token", token)
-            setCurrentUser(res)
-            Navigator.navigate(activity, MainActivity::class.java)
+            if(res.isSuccessful){
+                val bearer = headers.get("Authorization")
+                val token = bearer.split("Bearer ")[1]
+                Storage.storeData(activity, "token", token)
+                setCurrentUser(res)
+                Navigator.navigate(activity, MainActivity::class.java)
+            }
 
         })
     }
@@ -39,10 +41,6 @@ object AuthApi {
             val res = api.execute()
             if(res.isSuccessful){
                 setCurrentUser(res)
-                activity.runOnUiThread {
-                    val homeName = activity.findViewById<Text>(R.id.homeName)
-                    homeName.text = AppContext.currentUser.name
-                }
             }else{
                 Navigator.navigate(activity, SignUpActivity::class.java)
             }
