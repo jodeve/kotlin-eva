@@ -39,13 +39,9 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <com.example.kotlin_eva.components.CartBadgeView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_cart"
-            android:layout_alignParentRight="true"
-            />
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
 
     <ProgressBar
@@ -83,7 +79,7 @@
             />
 
         <com.example.kotlin_eva.components.PrimaryButton
-            android:id="@+id/primaryButton"
+            android:id="@+id/addToCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add to cart"

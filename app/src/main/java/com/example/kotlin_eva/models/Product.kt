@@ -7,6 +7,7 @@ class Product {
     var name = ""
     var image = ""
     var cost = 0
+    var isInCart = false
 
     constructor()
 
@@ -22,6 +23,7 @@ class Product {
                 image = jsonObject.getString("image")
                 cost = jsonObject.getInt("cost")
                 id = jsonObject.getInt("id")
+                if(jsonObject.has("is_in_cart")) isInCart = jsonObject.getBoolean("is_in_cart")
             }
     }
 

@@ -12,10 +12,14 @@ import org.json.JSONObject
 
 object AuthApi {
 
-    fun setCurrentUser(res: Response){
+    fun setCurrentUser(res: Response, activity: Activity){
         val body = res.body()
         val jsonObject = JSONObject(body.string())
         AppContext.currentUser = User.newInstance(jsonObject)
+        val count = jsonObject.getInt("cart")
+        activity.runOnUiThread {
+            AppContext.setCartCount(count, activity)
+        }
     }
 
     fun signUp(activity: Activity, hashMap: HashMap<String, String>): Thread{
@@ -28,7 +32,7 @@ object AuthApi {
                 val bearer = headers.get("Authorization")
                 val token = bearer.split("Bearer ")[1]
                 Storage.storeData(activity, "token", token)
-                setCurrentUser(res)
+                setCurrentUser(res, activity)
                 Navigator.navigate(activity, MainActivity::class.java)
             }
 
@@ -40,7 +44,7 @@ object AuthApi {
             val api = Api(activity, "/user")
             val res = api.execute()
             if(res.isSuccessful){
-                setCurrentUser(res)
+                setCurrentUser(res, activity)
             }else{
                 Navigator.navigate(activity, SignUpActivity::class.java)
             }

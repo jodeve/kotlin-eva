@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_eva.ProductsAdapter
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.interfaces.Products
+import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.Product
 import com.example.kotlin_eva.services.AuthApi
 import com.example.kotlin_eva.services.ProductsApi
@@ -31,6 +32,11 @@ class MainActivity : AppCompatActivity(), Products {
         progressBar = findViewById<ProgressBar>(R.id.progressBar)
         ProductsApi.index(this, this)
             .start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppContext.setCartCount(AppContext.cartCount, this)
     }
 
     override fun callback(product: ArrayList<Product>) {

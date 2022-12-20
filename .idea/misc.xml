@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.10182370820668693" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_cart.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/cart_badge_count.xml" value="0.227" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/text_field_border.xml" value="0.129" />
         <entry key="app/src/main/res/drawable/text_field_errorr.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/text_field_focused.xml" value="0.1" />
@@ -17,9 +20,11 @@
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/activity_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.17" />
+        <entry key="app/src/main/res/layout/cart_badge_view.xml" value="0.5" />
         <entry key="app/src/main/res/layout/email_field_view.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/fragment_slide.xml" value="0.33" />
         <entry key="app/src/main/res/layout/product_layout.xml" value="0.24114583333333334" />
+        <entry key="app/src/main/res/layout/sample_cart_badge_view.xml" value="0.10764944275582573" />
         <entry key="app/src/main/res/layout/slide_layout.xml" value="0.11911231884057971" />
         <entry key="app/src/main/res/layout/text_field_view.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/layout/textfield.xml" value="0.25" />
