@@ -5,6 +5,7 @@ import com.example.kotlin_eva.activities.MainActivity
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.activities.SignUpActivity
 import com.example.kotlin_eva.components.Text
+import com.example.kotlin_eva.interfaces.AuthApiListener
 import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.User
 import com.squareup.okhttp.Response
@@ -45,6 +46,10 @@ object AuthApi {
             val res = api.execute()
             if(res.isSuccessful){
                 setCurrentUser(res, activity)
+                activity.runOnUiThread {
+                    val authApiListener = activity as AuthApiListener
+                    authApiListener.onFinishValidateToken()
+                }
             }else{
                 Navigator.navigate(activity, SignUpActivity::class.java)
             }
