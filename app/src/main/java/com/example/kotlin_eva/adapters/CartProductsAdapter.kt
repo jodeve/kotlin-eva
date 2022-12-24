@@ -42,7 +42,7 @@ class CartProductsAdapter(var context: Context, var cartProducts: ArrayList<Cart
         val cost = product.cost
         holder.cost.text = "GHC ${cost.toString()}"
         holder.removeFromCart.setOnClickListener {
-            CartApi.remove(context as Activity, cartProduct, position)
+            CartApi.onRemoveCartProduct(context as Activity, cartProduct, position)
                 .start()
         }
     }

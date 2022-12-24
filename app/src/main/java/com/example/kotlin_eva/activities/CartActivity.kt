@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_eva.adapters.CartProductsAdapter
 import com.example.kotlin_eva.R
-import com.example.kotlin_eva.interfaces.ICart
+import com.example.kotlin_eva.interfaces.CartApiListener
 import com.example.kotlin_eva.models.CartProduct
 import com.example.kotlin_eva.services.CartApi
 import com.example.kotlin_eva.services.Statusbar
 
-class CartActivity : AppCompatActivity(), ICart {
+class CartActivity : AppCompatActivity(), CartApiListener {
 
     lateinit var cartProductsRV: RecyclerView
     lateinit var progressBar: ProgressBar
@@ -25,7 +25,7 @@ class CartActivity : AppCompatActivity(), ICart {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         Statusbar.makeWhite(this)
-        CartApi.index(this)
+        CartApi.onFetchCartProducts(this)
             .start()
         val backButton = findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener {
@@ -33,10 +33,10 @@ class CartActivity : AppCompatActivity(), ICart {
         }
     }
 
-    override fun onAddToCart() {
+    override fun onFinishAddCartProduct() {
     }
 
-    override fun onIndex(nCartProducts: ArrayList<CartProduct>) {
+    override fun onFinishFetchCartProducts(nCartProducts: ArrayList<CartProduct>) {
         cartProducts = nCartProducts
         cartProductsRV = findViewById<RecyclerView>(R.id.cartProducts)
         progressBar = findViewById<ProgressBar>(R.id.progressBar)
@@ -47,7 +47,7 @@ class CartActivity : AppCompatActivity(), ICart {
         cartProductsRV.layoutManager = LinearLayoutManager(this)
     }
 
-    override fun onDelete(position: Int) {
+    override fun onFinishRemoveCartProduct(position: Int) {
         cartProducts.removeAt(position)
         cartProductsAdapter.notifyItemRemoved(position)
     }

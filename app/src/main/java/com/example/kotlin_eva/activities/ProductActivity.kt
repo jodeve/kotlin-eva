@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.*
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.RoundCornersTransform
-import com.example.kotlin_eva.interfaces.ICart
-import com.example.kotlin_eva.interfaces.Products
+import com.example.kotlin_eva.interfaces.CartApiListener
+import com.example.kotlin_eva.interfaces.ProductsApiListener
 import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.CartProduct
 import com.example.kotlin_eva.models.Product
@@ -16,7 +16,7 @@ import com.example.kotlin_eva.services.ProductsApi
 import com.example.kotlin_eva.services.Statusbar
 import com.squareup.picasso.Picasso
 
-class ProductActivity : AppCompatActivity(), Products, ICart {
+class ProductActivity : AppCompatActivity(), ProductsApiListener, CartApiListener {
 
     lateinit var addToCart: Button
 
@@ -29,11 +29,11 @@ class ProductActivity : AppCompatActivity(), Products, ICart {
         backButton.setOnClickListener {
             finish()
         }
-        ProductsApi.show(this, this, productId!!)
+        ProductsApi.onFetchProduct(this, this, productId!!)
             .start()
         addToCart = findViewById<Button>(R.id.addToCart)
         addToCart.setOnClickListener {
-            CartApi.add(this, productId)
+            CartApi.onAddCartProduct(this, productId)
                 .start()
         }
         AppContext.setCartCount(AppContext.cartCount, this)
@@ -48,10 +48,10 @@ class ProductActivity : AppCompatActivity(), Products, ICart {
         AppContext.setCartCount(AppContext.cartCount, this)
     }
 
-    override fun callback(products: ArrayList<Product>) {
+    override fun onFinishFetchProducts(products: ArrayList<Product>) {
     }
 
-    override fun setProduct(product: Product) {
+    override fun onFinishFetchProduct(product: Product) {
         val productIndicator = findViewById<ProgressBar>(R.id.productIndicator)
         productIndicator.visibility = View.GONE
         val productView = findViewById<LinearLayout>(R.id.productView)
@@ -66,13 +66,13 @@ class ProductActivity : AppCompatActivity(), Products, ICart {
         if(product.isInCart) hideAddToCart()
     }
 
-    override fun onAddToCart() {
+    override fun onFinishAddCartProduct() {
         hideAddToCart()
     }
 
-    override fun onIndex(cartProducts: ArrayList<CartProduct>) {
+    override fun onFinishFetchCartProducts(cartProducts: ArrayList<CartProduct>) {
     }
 
-    override fun onDelete(position: Int) {
+    override fun onFinishRemoveCartProduct(position: Int) {
     }
 }

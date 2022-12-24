@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_eva.adapters.ProductsAdapter
 import com.example.kotlin_eva.R
-import com.example.kotlin_eva.interfaces.Products
+import com.example.kotlin_eva.interfaces.ProductsApiListener
 import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.Product
 import com.example.kotlin_eva.services.AuthApi
@@ -16,7 +16,7 @@ import com.example.kotlin_eva.services.ProductsApi
 import com.example.kotlin_eva.services.Statusbar
 
 
-class MainActivity : AppCompatActivity(), Products {
+class MainActivity : AppCompatActivity(), ProductsApiListener {
 
     val products = ArrayList<Product>()
     lateinit var productsRV: RecyclerView
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), Products {
         AuthApi.validateToken(this)
             .start()
         progressBar = findViewById<ProgressBar>(R.id.progressBar)
-        ProductsApi.index(this, this)
+        ProductsApi.onFetchProducts(this, this)
             .start()
     }
 
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), Products {
         AppContext.setCartCount(AppContext.cartCount, this)
     }
 
-    override fun callback(product: ArrayList<Product>) {
+    override fun onFinishFetchProducts(product: ArrayList<Product>) {
         productsRV = findViewById<RecyclerView>(R.id.products)
         progressBar.visibility = View.GONE
         productsRV.visibility = View.VISIBLE
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), Products {
         productsRV.layoutManager = GridLayoutManager(this, 2)
     }
 
-    override fun setProduct(product: Product) {
+    override fun onFinishFetchProduct(product: Product) {
     }
 
 
