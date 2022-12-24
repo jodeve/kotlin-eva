@@ -1,4 +1,4 @@
-package com.example.kotlin_eva.components
+package com.example.kotlin_eva.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

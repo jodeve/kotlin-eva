@@ -35,6 +35,7 @@ object AuthApi {
                 Storage.storeData(activity, "token", token)
                 setCurrentUser(res, activity)
                 Navigator.navigate(activity, MainActivity::class.java)
+                activity.finish()
             }
 
         })
