@@ -4,31 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
-    android:paddingHorizontal="20sp"
+    tools:context=".activities.CartActivity"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:paddingHorizontal="20sp"
     >
 
-    <LinearLayout
+    <com.example.kotlin_eva.components.BackView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.example.kotlin_eva.components.Header
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:text="Products"
-            android:layout_weight="1"
-            />
-
-        <com.example.kotlin_eva.components.CartBadgeView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            />
-    </LinearLayout>
+        custom:title="Cart"
+        />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -38,7 +24,7 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/products"
+        android:id="@+id/cartProducts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"

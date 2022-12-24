@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.viewpager2.widget.ViewPager2
 import com.example.kotlin_eva.*
+import com.example.kotlin_eva.adapters.SlidesAdapter
 import com.example.kotlin_eva.models.Slide
 import com.example.kotlin_eva.services.Navigator
 import com.example.kotlin_eva.services.SlidesOnPageChangeCallback
@@ -21,7 +22,10 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_on_boarding)
         Statusbar.makeWhite(this)
-        if(!Storage.getData(this, Companion.ONBOARD_KEY).isNullOrEmpty()) Navigator.navigate(this, MainActivity::class.java)
+        if(!Storage.getData(this, Companion.ONBOARD_KEY).isNullOrEmpty()) {
+            Navigator.navigate(this, MainActivity::class.java)
+            finish()
+        }
         slider = findViewById(R.id.slider)
         val nextButton = findViewById<Button>(R.id.next)
         skipButton = findViewById(R.id.skip)

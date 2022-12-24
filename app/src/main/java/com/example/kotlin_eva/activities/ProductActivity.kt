@@ -9,6 +9,7 @@ import com.example.kotlin_eva.RoundCornersTransform
 import com.example.kotlin_eva.interfaces.ICart
 import com.example.kotlin_eva.interfaces.Products
 import com.example.kotlin_eva.models.AppContext
+import com.example.kotlin_eva.models.CartProduct
 import com.example.kotlin_eva.models.Product
 import com.example.kotlin_eva.services.CartApi
 import com.example.kotlin_eva.services.ProductsApi
@@ -67,5 +68,11 @@ class ProductActivity : AppCompatActivity(), Products, ICart {
 
     override fun onAddToCart() {
         hideAddToCart()
+    }
+
+    override fun onIndex(cartProducts: ArrayList<CartProduct>) {
+    }
+
+    override fun onDelete(position: Int) {
     }
 }

@@ -27,6 +27,14 @@ class Api {
             .build()
     }
 
+    constructor(activity: Activity, path: String, method: String){
+        this.activity = activity
+        client = OkHttpClient()
+        request = buildRequest(path)
+            .method(method, null)
+            .build()
+    }
+
     constructor(activity: Activity, path: String, hashMap: HashMap<String, String>){
         this.activity = activity
         val m2: Map<String, String> = hashMap

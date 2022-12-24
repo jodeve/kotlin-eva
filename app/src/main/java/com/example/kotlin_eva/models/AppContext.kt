@@ -14,13 +14,19 @@ object AppContext {
     fun setCartCount(value: Int, activity: Activity) {
         val cartBadgeCount = activity.findViewById<TextView>(R.id.cartCount)
         val cartCountLayout = activity.findViewById<LinearLayout>(R.id.cartCountLayout)
-        cartCount = value
-        cartBadgeCount.text = cartCount.toString()
-        if(cartCount == 0) cartCountLayout.visibility = View.GONE
-        else cartCountLayout.visibility = View.VISIBLE
+        if(cartBadgeCount != null){
+            cartCount = value
+            cartBadgeCount.text = cartCount.toString()
+            if(cartCount == 0) cartCountLayout.visibility = View.GONE
+            else cartCountLayout.visibility = View.VISIBLE
+        }else cartCount = value
     }
 
     fun updateCart(activity: Activity){
         setCartCount(AppContext.cartCount + 1, activity)
+    }
+
+    fun reduceCart(activity: Activity){
+        setCartCount(AppContext.cartCount - 1, activity)
     }
 }

@@ -6,7 +6,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlin_eva.ProductsAdapter
+import com.example.kotlin_eva.adapters.ProductsAdapter
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.interfaces.Products
 import com.example.kotlin_eva.models.AppContext
