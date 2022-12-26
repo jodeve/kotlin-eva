@@ -70,6 +70,7 @@
            android:text="Sign up" />
 
        <com.example.kotlin_eva.components.AccountAsideView
+           android:id="@+id/loginAside"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            />
