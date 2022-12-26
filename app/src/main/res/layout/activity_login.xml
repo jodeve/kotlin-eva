@@ -56,8 +56,8 @@
             android:id="@+id/signUpAside"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            custom:aside_title="Already a member?"
-            custom:aside_button_text="Login"
+            custom:aside_title="Not a member?"
+            custom:aside_button_text="Sign up"
             />
 
 
