@@ -73,6 +73,8 @@
            android:id="@+id/loginAside"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
+           custom:aside_title="Already a member?"
+           custom:aside_button_text="Login"
            />
 
 

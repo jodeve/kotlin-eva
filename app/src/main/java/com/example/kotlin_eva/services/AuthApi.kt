@@ -8,12 +8,13 @@ import com.example.kotlin_eva.components.Text
 import com.example.kotlin_eva.interfaces.AuthApiListener
 import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.User
+import com.squareup.okhttp.Headers
 import com.squareup.okhttp.Response
 import org.json.JSONObject
 
 object AuthApi {
 
-    fun setCurrentUser(res: Response, activity: Activity){
+    private fun setCurrentUser(res: Response, activity: Activity){
         val body = res.body()
         val jsonObject = JSONObject(body.string())
         AppContext.currentUser = User.newInstance(jsonObject)
@@ -23,20 +24,21 @@ object AuthApi {
         }
     }
 
+    private fun setHeaders(activity: Activity, res: Response){
+        val bearer = res.headers().get("Authorization")
+        val token = bearer.split("Bearer ")[1]
+        Storage.storeData(activity, "token", token)
+        setCurrentUser(res, activity)
+        Navigator.navigate(activity, MainActivity::class.java)
+        activity.finish()
+    }
+
     fun signUp(activity: Activity, hashMap: HashMap<String, String>): Thread{
         return Thread(Runnable {
             // make request
             val api = Api(activity,"/register", hashMap)
             val res = api.execute()
-            val headers = res.headers()
-            if(res.isSuccessful){
-                val bearer = headers.get("Authorization")
-                val token = bearer.split("Bearer ")[1]
-                Storage.storeData(activity, "token", token)
-                setCurrentUser(res, activity)
-                Navigator.navigate(activity, MainActivity::class.java)
-                activity.finish()
-            }
+            if(res.isSuccessful) setHeaders(activity, res)
 
         })
     }
@@ -54,6 +56,18 @@ object AuthApi {
             }else{
                 Navigator.navigate(activity, SignUpActivity::class.java)
             }
+        })
+    }
+
+
+    fun login(activity: Activity, hashMap: HashMap<String, String>): Thread{
+        return Thread(Runnable {
+            // make request
+            val api = Api(activity,"/login", hashMap)
+            val res = api.execute()
+            if(res.isSuccessful) setHeaders(activity, res)
+
+
         })
     }
 

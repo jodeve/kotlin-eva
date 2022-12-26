@@ -8,16 +8,18 @@
     >
 
     <com.example.kotlin_eva.components.Text
+        android:id="@+id/accountAsideTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already a member?"
+        android:text=""
         />
 
     <com.example.kotlin_eva.components.TextButton
+        android:id="@+id/accountAsideButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5sp"
-        android:text="Login"
+        android:text=""
         />
 
 </LinearLayout>

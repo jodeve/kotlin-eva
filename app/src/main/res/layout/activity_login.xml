@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.SignUpActivity"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20sp"
+        android:orientation="vertical"
+        >
+
+
+        <com.example.kotlin_eva.components.Header2
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome back" />
+
+        <com.example.kotlin_eva.components.Text
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in to continue"
+            />
+
+        <com.example.kotlin_eva.components.TextFieldView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            custom:name="email"
+            custom:input="email"
+            custom:label="Email"/>
+
+        <com.example.kotlin_eva.components.TextFieldView
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            custom:name="password"
+            custom:input="password"
+            custom:label="Password"/>
+
+        <com.example.kotlin_eva.components.PrimaryButton
+            android:id="@+id/login"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+
+        <com.example.kotlin_eva.components.AccountAsideView
+            android:id="@+id/signUpAside"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:aside_title="Already a member?"
+            custom:aside_button_text="Login"
+            />
+
+
+    </LinearLayout>
+</ScrollView>
