@@ -13,4 +13,7 @@
     <declare-styleable name="BackView">
         <attr name="title" format="string"/>
     </declare-styleable>
+    <declare-styleable name="OptionsItemView">
+        <attr name="options_title" format="string"/>
+    </declare-styleable>
 </resources>
