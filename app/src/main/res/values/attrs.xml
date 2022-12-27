@@ -20,4 +20,7 @@
         <attr name="aside_title" format="string"/>
         <attr name="aside_button_text" format="string"/>
     </declare-styleable>
+    <declare-styleable name="HomeBarView">
+        <attr name="home_bar_title" format="string"/>
+    </declare-styleable>
 </resources>

@@ -9,28 +9,6 @@
     android:orientation="vertical"
     >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.example.kotlin_eva.components.Header
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:text="Products"
-            android:layout_weight="1"
-            />
-
-        <com.example.kotlin_eva.components.CartBadgeView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            />
-    </LinearLayout>
-
-
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"

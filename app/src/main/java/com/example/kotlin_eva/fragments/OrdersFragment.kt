@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.adapters.OrdersAdapter
 import com.example.kotlin_eva.interfaces.OrdersApiListener
+import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.Order
 import com.example.kotlin_eva.models.Product
 import com.example.kotlin_eva.services.OrdersApi
@@ -48,4 +49,8 @@ class OrdersFragment: Fragment(), OrdersApiListener {
     override fun onFinishCreateOrder() {
     }
 
+    override fun onResume() {
+        super.onResume()
+        AppContext.setCartCount(AppContext.cartCount, requireActivity())
+    }
 }

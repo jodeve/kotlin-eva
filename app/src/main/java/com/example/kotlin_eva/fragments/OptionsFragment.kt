@@ -12,6 +12,7 @@ import com.example.kotlin_eva.R
 import com.example.kotlin_eva.activities.OnBoardingActivity
 import com.example.kotlin_eva.adapters.ProductsAdapter
 import com.example.kotlin_eva.components.OptionsItemView
+import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.Product
 import com.example.kotlin_eva.services.Navigator
 import com.example.kotlin_eva.services.ProductsApi
@@ -35,6 +36,11 @@ class OptionsFragment: Fragment() {
             requireActivity().finish()
         }
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppContext.setCartCount(AppContext.cartCount, requireActivity())
     }
 
 }

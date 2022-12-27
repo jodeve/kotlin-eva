@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity(), AuthApiListener {
 
     override fun onResume() {
         super.onResume()
-        AppContext.setCartCount(AppContext.cartCount, this)
     }
 
     override fun onFinishValidateToken() {

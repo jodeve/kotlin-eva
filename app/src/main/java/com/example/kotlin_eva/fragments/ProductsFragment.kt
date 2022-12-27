@@ -12,12 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.adapters.ProductsAdapter
 import com.example.kotlin_eva.interfaces.ProductsApiListener
+import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.Product
 import com.example.kotlin_eva.services.ProductsApi
 
 class ProductsFragment : Fragment(), ProductsApiListener {
-    private var image: Int? = null
-    private var header: String? = null
 
     val products = ArrayList<Product>()
     lateinit var productsRV: RecyclerView
@@ -39,24 +38,8 @@ class ProductsFragment : Fragment(), ProductsApiListener {
         return view
     }
 
-    companion object {
-        /**
-         * This factory method creates a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param image Image of slide.
-         * @param header Header of slide
-         * @return A new instance of fragment SlideFragment.
-         */
-        @JvmStatic
-        fun newInstance(image: Int, header: String) =
-            SlideFragment().apply {
-
-            }
-    }
-
     override fun onFinishFetchProducts(products: ArrayList<Product>) {
-        productsRV = requireView().findViewById<RecyclerView>(R.id.products)
+        productsRV = requireView().findViewById(R.id.products)
         progressBar.visibility = View.GONE
         productsRV.visibility = View.VISIBLE
         productsAdapter = ProductsAdapter(requireContext(), products)
@@ -65,5 +48,10 @@ class ProductsFragment : Fragment(), ProductsApiListener {
     }
 
     override fun onFinishFetchProduct(product: Product) {
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppContext.setCartCount(AppContext.cartCount, requireActivity())
     }
 }
