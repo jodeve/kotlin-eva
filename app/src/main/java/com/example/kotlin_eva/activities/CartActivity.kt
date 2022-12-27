@@ -15,6 +15,7 @@ import com.example.kotlin_eva.interfaces.CartApiListener
 import com.example.kotlin_eva.interfaces.OrdersApiListener
 import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.CartProduct
+import com.example.kotlin_eva.models.Order
 import com.example.kotlin_eva.services.CartApi
 import com.example.kotlin_eva.services.Navigator
 import com.example.kotlin_eva.services.OrdersApi
@@ -79,5 +80,8 @@ class CartActivity : AppCompatActivity(), CartApiListener, OrdersApiListener {
     override fun onFinishCreateOrder() {
         AppContext.cartCount = 0
         Navigator.navigate(applicationContext, MainActivity::class.java)
+    }
+
+    override fun onFinishFetchOrders(orders: ArrayList<Order>) {
     }
 }

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_eva.adapters.ProductsAdapter
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.fragments.OptionsFragment
+import com.example.kotlin_eva.fragments.OrdersFragment
 import com.example.kotlin_eva.fragments.ProductsFragment
 import com.example.kotlin_eva.interfaces.AuthApiListener
 import com.example.kotlin_eva.interfaces.ProductsApiListener
@@ -34,13 +35,14 @@ class MainActivity : AppCompatActivity(), AuthApiListener {
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavView)
         val productsFragment = ProductsFragment()
         val optionsFragment = OptionsFragment()
+        val ordersFragment = OrdersFragment()
 
         setCurrentFragment(productsFragment)
 
         bottomNavigation.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home->setCurrentFragment(productsFragment)
-                R.id.orders->{}
+                R.id.orders->setCurrentFragment(ordersFragment)
                 R.id.options->setCurrentFragment(optionsFragment)
             }
             true

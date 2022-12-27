@@ -2,4 +2,5 @@
 <resources>
     <dimen name="text_field_margin">140sp</dimen>
     <dimen name="text_field_marginless">100sp</dimen>
+    <dimen name="margin">20sp</dimen>
 </resources>
