@@ -8,7 +8,7 @@ class Api {
 
     private lateinit var client: OkHttpClient
     private lateinit var request: Request
-    private var host = "http://10.0.2.2:8000/api"
+    private var host = "https://kotlin-eva.herokuapp.com/api"
     private lateinit var activity: Activity
 
     fun buildRequest(path: String): Request.Builder{
