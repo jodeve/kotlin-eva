@@ -6,7 +6,7 @@ import android.util.TypedValue
 import androidx.core.content.res.ResourcesCompat
 import com.example.kotlin_eva.R
 
-class Header2(context: Context, attributeSet: AttributeSet) : Header(context, attributeSet) {
+class Header3(context: Context, attributeSet: AttributeSet) : Header(context, attributeSet) {
 
     init {
         applyFont()
@@ -16,7 +16,7 @@ class Header2(context: Context, attributeSet: AttributeSet) : Header(context, at
         super.applyFont()
         val color = ResourcesCompat.getColor(resources, R.color.black, null)
         setTextColor(color)
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, 28f)
+        setTextSize(TypedValue.COMPLEX_UNIT_SP, 35f)
     }
 
 }

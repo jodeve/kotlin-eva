@@ -15,6 +15,10 @@ class Product {
         this.name = name
     }
 
+    fun costString(): String{
+        return "GHC ${cost.toString()}"
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(jsonObject: JSONObject) =

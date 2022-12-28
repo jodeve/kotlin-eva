@@ -30,6 +30,14 @@
         android:visibility="gone"
         >
 
+        <com.example.kotlin_eva.components.Header2
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginBottom="20sp"
+            />
+
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="match_parent"
@@ -37,7 +45,7 @@
             app:srcCompat="@mipmap/product" />
 
         <com.example.kotlin_eva.components.Header2
-            android:id="@+id/productName"
+            android:id="@+id/productCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""

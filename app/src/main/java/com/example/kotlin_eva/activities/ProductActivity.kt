@@ -63,6 +63,8 @@ class ProductActivity : AppCompatActivity(), ProductsApiListener, CartApiListene
             .into(productImage)
         val productName = findViewById<TextView>(R.id.productName)
         productName.text = product.name
+        val productCost = findViewById<TextView>(R.id.productCost)
+        productCost.text = product.costString()
         if(product.isInCart) hideAddToCart()
     }
 
