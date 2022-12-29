@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_cart.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/cart_badge_count.xml" value="0.227" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_outline_shopping_cart_24.xml" value="0.1035" />
         <entry key="app/src/main/res/drawable/text_field_border.xml" value="0.129" />
         <entry key="app/src/main/res/drawable/text_field_errorr.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/text_field_focused.xml" value="0.1" />
