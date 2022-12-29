@@ -11,7 +11,7 @@
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_baseline_arrow_back_24" />
 
-    <com.example.kotlin_eva.components.Header
+    <com.example.kotlin_eva.components.Header2
         android:id="@+id/backTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
