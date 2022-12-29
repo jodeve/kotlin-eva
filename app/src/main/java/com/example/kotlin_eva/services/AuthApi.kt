@@ -71,4 +71,14 @@ object AuthApi {
         })
     }
 
+    fun onDeleteAccount(activity: Activity, authApiListener: AuthApiListener): Thread{
+        return Thread(Runnable {
+            val api = Api(activity,"/user", "DELETE")
+            val res = api.execute()
+            if(res.isSuccessful){
+                authApiListener.onFinishDeleteAccount()
+            }
+        })
+    }
+
 }

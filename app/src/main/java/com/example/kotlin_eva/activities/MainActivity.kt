@@ -64,5 +64,8 @@ class MainActivity : AppCompatActivity(), AuthApiListener {
 
     }
 
+    override fun onFinishDeleteAccount() {
+    }
+
 
 }

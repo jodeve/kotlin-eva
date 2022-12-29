@@ -15,7 +15,16 @@
         android:id="@+id/signOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        custom:options_icon="@drawable/ic_outline_login_24"
         custom:options_title="Sign Out"
+        />
+
+    <com.example.kotlin_eva.components.OptionsItemView
+        android:id="@+id/deleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:options_icon="@drawable/ic_baseline_delete_24"
+        custom:options_title="Delete Account"
         />
 
 </LinearLayout>

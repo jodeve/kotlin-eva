@@ -15,6 +15,7 @@
     </declare-styleable>
     <declare-styleable name="OptionsItemView">
         <attr name="options_title" format="string"/>
+        <attr name="options_icon" format="integer"/>
     </declare-styleable>
     <declare-styleable name="AccountAsideView">
         <attr name="aside_title" format="string"/>
