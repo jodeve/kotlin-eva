@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_arrow_back_24"
-        />
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
 
     <com.example.kotlin_eva.components.Header
         android:id="@+id/backTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
-        android:layout_marginLeft="5sp"
-        />
+        android:layout_marginLeft="10sp"
+        android:text="Title"
+        android:textSize="28sp" />
 
 
 </LinearLayout>
