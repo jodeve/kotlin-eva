@@ -1,71 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".activities.ProductActivity"
-    android:orientation="vertical"
-    android:paddingHorizontal="20sp"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    >
-
-    <com.example.kotlin_eva.components.BackBarView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        custom:back_view_title="Show Product"
-        />
-
-    <ProgressBar
-        android:id="@+id/productIndicator"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/productView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:paddingHorizontal="20sp"
         >
 
-        <com.example.kotlin_eva.components.Header2
-            android:id="@+id/productName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginBottom="20sp"
-            />
-
-        <ImageView
-            android:id="@+id/productImage"
+        <com.example.kotlin_eva.components.BackBarView
             android:layout_width="match_parent"
-            android:layout_height="200sp"
-            app:srcCompat="@mipmap/product" />
-
-        <com.example.kotlin_eva.components.Header2
-            android:id="@+id/productCost"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginTop="20sp"
+            custom:back_view_title="Product"
             />
 
-        <com.example.kotlin_eva.components.Text
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lorem"
-            />
+        <ProgressBar
+            android:id="@+id/productIndicator"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <com.example.kotlin_eva.components.PrimaryButton
-            android:id="@+id/addToCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add to cart"
-            android:layout_marginTop="20sp"
+        <LinearLayout
+            android:id="@+id/productView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
 
-            />
+            <com.example.kotlin_eva.components.Header2
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginBottom="20sp"
+                />
 
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                app:srcCompat="@mipmap/product" />
+
+            <com.example.kotlin_eva.components.Header2
+                android:id="@+id/productCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginTop="20sp"
+                />
+
+            <com.example.kotlin_eva.components.Text
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lorem"
+                />
+
+            <com.example.kotlin_eva.components.PrimaryButton
+                android:id="@+id/addToCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to cart"
+                android:layout_marginTop="20sp"
+
+                />
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
