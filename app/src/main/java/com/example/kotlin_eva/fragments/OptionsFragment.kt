@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.kotlin_eva.R
+import com.example.kotlin_eva.activities.LoginActivity
 import com.example.kotlin_eva.activities.OnBoardingActivity
 import com.example.kotlin_eva.components.OptionsItemView
 import com.example.kotlin_eva.interfaces.AuthApiListener
@@ -57,7 +58,7 @@ class OptionsFragment: Fragment(), AuthApiListener {
 
     private fun onSignOut(){
         Storage.removeData(requireActivity(), "token")
-        Navigator.navigate(requireContext(), OnBoardingActivity::class.java)
+        Navigator.navigate(requireContext(), LoginActivity::class.java)
         requireActivity().finish()
     }
 
