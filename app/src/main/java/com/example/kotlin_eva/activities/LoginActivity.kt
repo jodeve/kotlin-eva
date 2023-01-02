@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
 
         signUpAside.setOnClickListener {
             Navigator.navigate(applicationContext, SignUpActivity::class.java)
+            finish()
         }
     }
 }
