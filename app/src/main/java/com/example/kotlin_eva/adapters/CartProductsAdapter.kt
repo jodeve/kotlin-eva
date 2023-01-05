@@ -7,15 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.RoundCornersTransform
 import com.example.kotlin_eva.components.Header
+import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.CartProduct
 import com.example.kotlin_eva.services.CartApi
 import com.squareup.picasso.Picasso
 
-class CartProductsAdapter(var context: Context, var cartProducts: ArrayList<CartProduct>): RecyclerView.Adapter<CartProductsAdapter.ViewHolder>() {
+class CartProductsAdapter(var activity: AppCompatActivity, var cartProducts: ArrayList<CartProduct>): RecyclerView.Adapter<CartProductsAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val header: TextView = view.findViewById<Header>(R.id.productItemName)
@@ -39,10 +41,9 @@ class CartProductsAdapter(var context: Context, var cartProducts: ArrayList<Cart
             .load(product.image)
             .transform(RoundCornersTransform(50f))
             .into(holder.image)
-        val cost = product.cost
-        holder.cost.text = "GHC ${cost.toString()}"
+        holder.cost.text = product.costString()
         holder.removeFromCart.setOnClickListener {
-            CartApi.onRemoveCartProduct(context as Activity, cartProduct, position)
+            CartApi.onRemoveCartProduct(activity, cartProduct, position)
                 .start()
         }
     }

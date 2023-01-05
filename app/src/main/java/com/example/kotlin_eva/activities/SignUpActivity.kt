@@ -8,6 +8,7 @@ import com.example.kotlin_eva.R
 import com.example.kotlin_eva.components.AccountAsideView
 import com.example.kotlin_eva.services.Statusbar
 import com.example.kotlin_eva.components.TextFieldView
+import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.services.AuthApi
 import com.example.kotlin_eva.services.Navigator
 
@@ -43,6 +44,8 @@ class SignUpActivity : AppCompatActivity() {
                 values[textField.name] = textField.editText.text.toString()
             }
             if(valid.contains(false)) return@setOnClickListener
+
+            AppContext.showActivity(this)
             AuthApi.signUp(this, values)
                 .start()
         }

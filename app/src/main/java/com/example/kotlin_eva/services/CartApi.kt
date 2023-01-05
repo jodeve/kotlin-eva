@@ -1,6 +1,7 @@
 package com.example.kotlin_eva.services
 
 import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlin_eva.interfaces.CartApiListener
 import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.CartProduct
@@ -9,13 +10,15 @@ import java.lang.Exception
 
 object CartApi {
 
-    fun onAddCartProduct(activity: Activity, productId: String): Thread{
+    fun onAddCartProduct(activity: AppCompatActivity, productId: String): Thread{
         val hashMap = HashMap<String, String>()
         hashMap["productId"] = productId
         return Thread(Runnable {
             try {
+                AppContext.showActivity(activity)
                 val req = Api(activity, "/carts", hashMap)
                 val res = req.execute()
+                AppContext.hideActivity()
                 if(res.isSuccessful){
                     activity.runOnUiThread {
                         AppContext.updateCart(activity)
@@ -53,11 +56,13 @@ object CartApi {
         })
     }
 
-    fun onRemoveCartProduct(activity: Activity, cartProduct: CartProduct, index: Int): Thread{
+    fun onRemoveCartProduct(activity: AppCompatActivity, cartProduct: CartProduct, index: Int): Thread{
         return Thread(Runnable {
             try {
+                AppContext.showActivity(activity)
                 val req = Api(activity, "/carts/${cartProduct.id}", "DELETE")
                 val res = req.execute()
+                AppContext.hideActivity()
                 if(res.isSuccessful){
                     activity.runOnUiThread {
                         val cartApiListener = activity as CartApiListener

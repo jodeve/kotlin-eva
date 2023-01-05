@@ -40,6 +40,7 @@ object AuthApi {
                 // make request
                 val api = Api(activity,"/register", hashMap)
                 val res = api.execute()
+                AppContext.hideActivity()
                 if(res.isSuccessful) setHeaders(activity, res)
             }catch (e: Exception){
                 Toaster.makeError(activity)
@@ -75,6 +76,7 @@ object AuthApi {
                 // make request
                 val api = Api(activity,"/login", hashMap)
                 val res = api.execute()
+                AppContext.hideActivity()
                 if(res.isSuccessful) setHeaders(activity, res)
             }catch (e: Exception){
                 Toaster.makeError(activity)

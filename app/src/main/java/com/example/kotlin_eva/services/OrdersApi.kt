@@ -1,7 +1,9 @@
 package com.example.kotlin_eva.services
 
 import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlin_eva.interfaces.OrdersApiListener
+import com.example.kotlin_eva.models.AppContext
 import com.example.kotlin_eva.models.Order
 import com.example.kotlin_eva.models.Product
 import org.json.JSONArray
@@ -32,11 +34,13 @@ object OrdersApi {
         })
     }
 
-    fun onCreateOrder(activity: Activity, ordersApiListener: OrdersApiListener): Thread{
+    fun onCreateOrder(activity: AppCompatActivity, ordersApiListener: OrdersApiListener): Thread{
         return Thread(Runnable {
             try {
+                AppContext.showActivity(activity)
                 val req = Api(activity, "/orders", HashMap())
                 val res = req.execute()
+                AppContext.hideActivity()
                 if(res.isSuccessful){
                     activity.runOnUiThread {
                         ordersApiListener.onFinishCreateOrder()

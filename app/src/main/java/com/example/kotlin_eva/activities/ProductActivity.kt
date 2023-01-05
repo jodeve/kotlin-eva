@@ -1,11 +1,12 @@
 package com.example.kotlin_eva.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlin_eva.R
 import com.example.kotlin_eva.RoundCornersTransform
+import com.example.kotlin_eva.fragments.ActivityFragment
 import com.example.kotlin_eva.interfaces.CartApiListener
 import com.example.kotlin_eva.interfaces.ProductsApiListener
 import com.example.kotlin_eva.models.AppContext
