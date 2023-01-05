@@ -39,7 +39,8 @@ class OnBoardingActivity : AppCompatActivity() {
         val slidesAdapter = SlidesAdapter(this, arrayList)
         slider!!.adapter = slidesAdapter
         nextButton.setOnClickListener {
-            slider!!.currentItem = currentPos + 1
+            if(currentPos == 2) navigateToSignUp()
+            else slider!!.currentItem = currentPos + 1
         }
 
         slider!!.registerOnPageChangeCallback(SlidesOnPageChangeCallback.getCallback(this))

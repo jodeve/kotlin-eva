@@ -15,7 +15,6 @@ object SlidesOnPageChangeCallback {
 
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if(position == 2) onBoardingActivity.navigateToSignUp()
 
             }
 
