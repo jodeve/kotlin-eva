@@ -11,6 +11,7 @@ import com.example.kotlin_eva.models.User
 import com.squareup.okhttp.Headers
 import com.squareup.okhttp.Response
 import org.json.JSONObject
+import java.lang.Exception
 
 object AuthApi {
 
@@ -35,26 +36,34 @@ object AuthApi {
 
     fun signUp(activity: Activity, hashMap: HashMap<String, String>): Thread{
         return Thread(Runnable {
-            // make request
-            val api = Api(activity,"/register", hashMap)
-            val res = api.execute()
-            if(res.isSuccessful) setHeaders(activity, res)
+            try {
+                // make request
+                val api = Api(activity,"/register", hashMap)
+                val res = api.execute()
+                if(res.isSuccessful) setHeaders(activity, res)
+            }catch (e: Exception){
+                Toaster.makeError(activity)
+            }
 
         })
     }
 
     fun validateToken(activity: Activity): Thread{
         return Thread(Runnable {
-            val api = Api(activity, "/user")
-            val res = api.execute()
-            if(res.isSuccessful){
-                setCurrentUser(res, activity)
-                activity.runOnUiThread {
-                    val authApiListener = activity as AuthApiListener
-                    authApiListener.onFinishValidateToken()
+            try {
+                val api = Api(activity, "/user")
+                val res = api.execute()
+                if(res.isSuccessful){
+                    setCurrentUser(res, activity)
+                    activity.runOnUiThread {
+                        val authApiListener = activity as AuthApiListener
+                        authApiListener.onFinishValidateToken()
+                    }
+                }else{
+                    Navigator.navigate(activity, SignUpActivity::class.java)
                 }
-            }else{
-                Navigator.navigate(activity, SignUpActivity::class.java)
+            }catch (e: Exception){
+                Toaster.makeError(activity)
             }
         })
     }
@@ -62,10 +71,14 @@ object AuthApi {
 
     fun login(activity: Activity, hashMap: HashMap<String, String>): Thread{
         return Thread(Runnable {
-            // make request
-            val api = Api(activity,"/login", hashMap)
-            val res = api.execute()
-            if(res.isSuccessful) setHeaders(activity, res)
+            try{
+                // make request
+                val api = Api(activity,"/login", hashMap)
+                val res = api.execute()
+                if(res.isSuccessful) setHeaders(activity, res)
+            }catch (e: Exception){
+                Toaster.makeError(activity)
+            }
 
 
         })
@@ -73,10 +86,14 @@ object AuthApi {
 
     fun onDeleteAccount(activity: Activity, authApiListener: AuthApiListener): Thread{
         return Thread(Runnable {
-            val api = Api(activity,"/user", "DELETE")
-            val res = api.execute()
-            if(res.isSuccessful){
-                authApiListener.onFinishDeleteAccount()
+            try {
+                val api = Api(activity,"/user", "DELETE")
+                val res = api.execute()
+                if(res.isSuccessful){
+                    authApiListener.onFinishDeleteAccount()
+                }
+            }catch (e: Exception){
+                Toaster.makeError(activity)
             }
         })
     }

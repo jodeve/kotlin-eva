@@ -10,34 +10,42 @@ object ProductsApi {
 
     fun onFetchProducts(activity: Activity, productsApiListener: ProductsApiListener): Thread{
         return Thread(Runnable {
-            val req = Api(activity, "/products")
-            val res = req.execute()
-            if(res.isSuccessful){
-                val body = res.body()
-                val productsA = ArrayList<Product>()
-                val jsonArray = JSONArray(body.string())
-                for (i in 0 until jsonArray.length()) {
-                    val jsonObject = jsonArray.getJSONObject(i)
-                    productsA.add(Product.newInstance(jsonObject))
+            try {
+                val req = Api(activity, "/products")
+                val res = req.execute()
+                if(res.isSuccessful){
+                    val body = res.body()
+                    val productsA = ArrayList<Product>()
+                    val jsonArray = JSONArray(body.string())
+                    for (i in 0 until jsonArray.length()) {
+                        val jsonObject = jsonArray.getJSONObject(i)
+                        productsA.add(Product.newInstance(jsonObject))
+                    }
+                    activity.runOnUiThread {
+                        productsApiListener.onFinishFetchProducts(productsA)
+                    }
                 }
-                activity.runOnUiThread {
-                    productsApiListener.onFinishFetchProducts(productsA)
-                }
+            }catch (e: Exception){
+                Toaster.makeError(activity)
             }
         })
     }
 
     fun onFetchProduct(activity: Activity, productsApiListener: ProductsApiListener, id: String): Thread{
         return Thread(Runnable {
-            val req = Api(activity, "/products/${id}")
-            val res = req.execute()
-            if(res.isSuccessful){
-                val body = res.body()
-                val jsonObject = JSONObject(body.string())
-                val product = Product.newInstance(jsonObject)
-                activity.runOnUiThread {
-                    productsApiListener.onFinishFetchProduct(product)
+            try {
+                val req = Api(activity, "/products/${id}")
+                val res = req.execute()
+                if(res.isSuccessful){
+                    val body = res.body()
+                    val jsonObject = JSONObject(body.string())
+                    val product = Product.newInstance(jsonObject)
+                    activity.runOnUiThread {
+                        productsApiListener.onFinishFetchProduct(product)
+                    }
                 }
+            }catch (e: Exception){
+                Toaster.makeError(activity)
             }
         })
     }
