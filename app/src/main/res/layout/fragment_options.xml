@@ -27,4 +27,21 @@
         custom:options_title="Delete Account"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_marginBottom="20dp"
+        >
+
+        <com.example.kotlin_eva.components.Text
+            android:id="@+id/labelText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Images designed by Freepik"
+            />
+
+    </LinearLayout>
+
 </LinearLayout>
