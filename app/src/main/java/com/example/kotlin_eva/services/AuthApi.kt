@@ -78,6 +78,9 @@ object AuthApi {
                 val res = api.execute()
                 AppContext.hideActivity()
                 if(res.isSuccessful) setHeaders(activity, res)
+                else if(res.code() == 422){
+                    Toaster.makeToast(activity, "Invalid email or password")
+                }
             }catch (e: Exception){
                 Toaster.makeError(activity)
             }

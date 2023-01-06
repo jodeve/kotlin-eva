@@ -5,10 +5,14 @@ import android.widget.Toast
 
 object Toaster {
 
-    fun makeError(activity: Activity){
+    fun makeToast(activity: Activity, message: String){
         activity.runOnUiThread {
-            Toast.makeText(activity, "An unknown error occurred", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
         }
+    }
+
+    fun makeError(activity: Activity){
+        makeToast(activity, "An unknown error occurred")
     }
 
 }
